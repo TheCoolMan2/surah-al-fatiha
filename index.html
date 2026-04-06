@@ -5,75 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
-      .amiri-quran-regular {
-        font-family: "Amiri Quran", serif;
-        font-weight: 400;
-        font-style: normal;
-      }
       .changeColor {
         font-family: "Amiri Quran", serif;
         text-align: justify;
         text-justify: inter-word;
         direction: rtl;
         word-spacing: 3px;
+        font-size: 32px;
+        line-height: 2.2;
+        padding: 20px;
+        color: black;
       }
-    </style>
-    <style>
+
+      h1 {
+        text-align: center;
+        font-family: "Amiri Quran", serif;
+      }
+
       .container {
         align-items: center;
         background-color: #fff;
         border-radius: 12px;
-        box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+        box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
         box-sizing: border-box;
         color: #121212;
         cursor: pointer;
-        display: inline-flex;
-        flex: 1 1 auto;
+        display: block;
         font-family: Inter,sans-serif;
         font-size: 1.2rem;
         font-weight: 700;
         justify-content: center;
         line-height: 1;
-        margin: 0;
+        margin: 10px auto;
         outline: none;
         padding: 1rem 1.2rem;
         text-align: center;
         text-decoration: none;
         transition: box-shadow .2s,-webkit-box-shadow .2s;
-        white-space: nowrap;
         border: 0;
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
-        }
+      }
 
-        .container:hover {
-          box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
-        }
+      .container:hover {
+        box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+      }
+
+      body {
+        background-color: white;
+        margin: 0;
+        padding: 20px;
+      }
     </style>
   </head>
   <body>
-    <h1 class="changeColor">Surah Al Fatiha</h1>
-    <h1 class="changeColor">﷽</h1>
-    <div class="changeColor>
-      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الرَّحْمَٰنِ الرَّحِيمِ مَالِكِ يَوْمِ الدِّينِ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+    <h1>Surah Al Fatiha</h1>
+    <h1>﷽</h1>
+
+    <div class="changeColor">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+      الرَّحْمَٰنِ الرَّحِيمِ
+      مَالِكِ يَوْمِ الدِّينِ
+      إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+      اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+      صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
     </div>
-    <button class="container" onclick="light_mode_or_dark(event)">Dark mode</button>
+
+    <button class="container" onclick="toggleDarkMode(event)">Dark mode</button>
+
     <script>
       let toggled = false;
-      function light_mode_or_dark(event) {
+      function toggleDarkMode(event) {
         toggled = !toggled;
-        const texts = document.querySelectorAll('.changeColor');
+        const quranText = document.querySelector('.changeColor');
+        const titles = document.querySelectorAll('h1');
         if (toggled) {
-          texts.forEach(el => el.style.color = "white");
+          quranText.style.color = "white";
+          titles.forEach(el => el.style.color = "white");
           document.body.style.backgroundColor = "black";
           event.target.textContent = "Light mode";
         } else {
-          texts.forEach(el => el.style.color = "black");
+          quranText.style.color = "black";
+          titles.forEach(el => el.style.color = "black");
           document.body.style.backgroundColor = "white";
           event.target.textContent = "Dark mode";
-          }
         }
-    </script> 
+      }
+    </script>
   </body>
 </html>
